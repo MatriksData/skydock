@@ -1,0 +1,31 @@
+{
+  "name": "skydock",
+  "version": "0.0.1",
+  "description": "Listens Docker container start and stop/die events for updating Skydns records at the etcd repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "kasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatriksData/skydock.git"
+  },
+  "keywords": [
+    "skydns",
+    "docker",
+    "dhcp",
+    "coreos",
+    "etcd",
+    "systemd"
+  ],
+  "author": "MatriksData team",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/MatriksData/skydock/issues"
+  },
+  "homepage": "https://github.com/MatriksData/skydock",
+  "dependencies": {
+    "docker-events": "0.0.2",
+    "dockerode": "^2.0.7"
+  }
+}
