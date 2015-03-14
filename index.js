@@ -25,9 +25,15 @@ var updateSkydns = function(id, isSet) {
         .inspect(function(err, data) {
             var name = /.*\/(.*)$/.exec(data.Name)[1],
                 ip = data.NetworkSettings.IPAddress,
+                ipString = ip ? util.format('\'{"host":"%s"}\'', ip) : '',
                 cmd = util.format('etcdctl %s %s %s',
                                   isSet ? 'set' : 'rm',
-                                 domain + name, ip);
+                                  domain + name,
+                                  ipString);
+            if (isSet && ! ip) {
+                console.log('No IP is set to %s. Key adding will be cancelled.');
+                return;
+            }
             console.log('The command to be processed: ' + cmd);
             exec(cmd, function(err, stdout, stderr) {
                 if (err) {
