@@ -31,7 +31,7 @@ var updateSkydns = function(id, isSet) {
                                   domain + name,
                                   ipString);
             if (isSet && ! ip) {
-                console.log('No IP is set to %s. Key adding will be cancelled.');
+                console.log('No IP is set to %s. Key adding will be cancelled.', name);
                 return;
             }
             console.log('The command to be processed: ' + cmd);
