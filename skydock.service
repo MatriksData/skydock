@@ -1,0 +1,13 @@
+[Unit]
+Description=SkyDock service
+
+[Service]
+EnvironmentFile=/etc/environment
+
+ExecStartPre=/usr/bin/mkdir -p /data
+
+ExecStart=/bin/bash -c '\
+  git clone https://github.com/MatriksData/skydock.git /data/skydock; \
+  cd /data/skydock; \
+  . ./get-node-bin.sh; \
+  node/bin/node'
