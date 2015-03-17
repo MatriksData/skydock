@@ -1,5 +1,6 @@
 [Unit]
 Description=SkyDock service
+After=docker.service
 
 [Service]
 EnvironmentFile=/etc/environment
