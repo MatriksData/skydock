@@ -13,6 +13,10 @@ tar zxf node-v${NODE_VER}-linux-x64.tar.gz
 rm node-v${NODE_VER}-linux-x64.tar.gz
 mv node-v${NODE_VER}-linux-x64 node
 
+echo change mods of executables
+chmod +x node/bin/npm
+chmod +x node/bin/node
+
 echo Installing dependencies
 node/bin/npm install
 
