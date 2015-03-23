@@ -16,6 +16,23 @@ var domain = (function() {
 
 console.log('Domain is ' + domain);
 
+(function () {
+    console.log('Update etcd for running docker container');
+    
+    docker.listContainers(function (err, containers) {
+        containers.forEach(function (containerInfo) {
+             docker.getContainer(containerInfo.Id).inspect(function(err, data) {
+                var name = /.*\/(.*)$/.exec(data.Name)[1],
+                ip = data.NetworkSettings.IPAddress,
+                ipString = ip ? util.format('\'{"host":"%s"}\'', ip) : '',
+                cmd = util.format('etcdctl %s %s %s',
+                                  'set',
+                                  domain + name,
+                                  ipString);;
+        });
+    });
+}());
+
 var emitter = new DockerEvents({
     docker: docker
 });
