@@ -28,7 +28,14 @@ console.log('Domain is ' + domain);
                 cmd = util.format('etcdctl %s %s %s',
                                   'set',
                                   domain + name,
-                                  ipString);;
+                                  ipString);
+                                  
+                console.log('The command to be processed: ' + cmd);
+                exec(cmd, function(err, stdout, stderr) {
+                if (err) {
+                    console.log(stderr);  // TODO check if it is necessary to tog full error
+                }
+            });
         });
     });
 }());
