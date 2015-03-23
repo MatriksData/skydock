@@ -32,12 +32,13 @@ console.log('Domain is ' + domain);
                                   
                 console.log('The command to be processed: ' + cmd);
                 exec(cmd, function(err, stdout, stderr) {
-                if (err) {
-                    console.log(stderr);  // TODO check if it is necessary to tog full error
-                }
+                    if (err) {
+                         console.log(stderr);  // TODO check if it is necessary to tog full error
+                    }
+                });
             });
         });
-    });
+    })
 }());
 
 var emitter = new DockerEvents({
