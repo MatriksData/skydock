@@ -51,7 +51,7 @@ var updateSkydns = function(id, isSet) {
             .inspect(function(err, data) {
                 console.log(id);
                 if(err){
-                    throw (err);
+                    console.log(err);
                 }else{
                     var name = /.*\/(.*)$/.exec(data.Name)[1],
                         ip = data.NetworkSettings.IPAddress,
