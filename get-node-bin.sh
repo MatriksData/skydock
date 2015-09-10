@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NODE_VER=0.12.0
+NODE_VER=0.12.7
 echo Downloading node-v${NODE_VER}-linux-x64.tar.gz
-wget -q http://nodejs.org/dist/v${NODE_VER}/node-v${NODE_VER}-linux-x64.tar.gz
+wget -q https://nodejs.org/dist/v${NODE_VER}/node-v${NODE_VER}-linux-x64.tar.gz
 if [ ! -e node-v${NODE_VER}-linux-x64.tar.gz ]
 then
     echo Node binary distribution file could not be downloaded
