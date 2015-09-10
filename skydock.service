@@ -8,7 +8,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=/usr/bin/mkdir -p /data
 
 ExecStart=/bin/bash -c '\
-  git clone https://github.com/MatriksData/skydock.git /opt/skydock; \
-  cd /opt/skydock; \
-  . ./get-node-bin.sh; \
+  git clone https://github.com/MatriksData/skydock.git /opt/skydock && \
+  cd /opt/skydock && \
+  . ./get-node-bin.sh && \
   node/bin/node index.js'
